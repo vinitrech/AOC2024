@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AOC2024/.vs/AOC2024
+/AOC2024/AOC2024/obj/Debug/net8.0
+/AOC2024/DayOne/bin/Debug/net8.0
+/AOC2024/DayOne/obj
