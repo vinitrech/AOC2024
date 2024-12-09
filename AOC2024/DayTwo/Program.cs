@@ -12,7 +12,7 @@
             Console.WriteLine($"Time to run: {TimeProvider.System.GetElapsedTime(timeToRun).TotalMilliseconds}");
         }
 
-        private static bool IsValidReport(IEnumerable<int> elements) => //Output: 383
+        private static bool IsValidReport(IEnumerable<int> elements) =>
             ValidateReport(elements, ascending: true) || ValidateReport(elements, ascending: false);
 
         private static bool ValidateReport(IEnumerable<int> elements, bool ascending) =>
