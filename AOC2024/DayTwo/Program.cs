@@ -12,13 +12,11 @@
             Console.WriteLine($"Time to run: {TimeProvider.System.GetElapsedTime(timeToRun).TotalMilliseconds}");
         }
 
-        private static bool IsValidReport(IEnumerable<int> elements) //Output: 383
-        {
-            var ascendingCheck = elements.Zip(elements.Skip(1), (f, s) => IsValidPair(f, s, ascending: true));
-            var descendingCheck = elements.Zip(elements.Skip(1), (f, s) => IsValidPair(f, s, ascending: false));
+        private static bool IsValidReport(IEnumerable<int> elements) => //Output: 383
+            ValidateReport(elements, ascending: true) || ValidateReport(elements, ascending: false);
 
-            return ascendingCheck.All(x => x) || descendingCheck.All(x => x);
-        }
+        private static bool ValidateReport(IEnumerable<int> elements, bool ascending) =>
+            elements.Zip(elements.Skip(1), (f, s) => IsValidPair(f, s, ascending)).All(x => x);
 
         private static bool IsValidPair(int f, int s, bool ascending) =>
             (ascending ? f < s : f > s) && Math.Abs(f - s) >= 1 && Math.Abs(f - s) <= 3;
